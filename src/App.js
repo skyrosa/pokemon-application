@@ -19,8 +19,23 @@ function App() {
       setLoading(false)
       setPrevPageUrl(res.data.previous)
       setNextPageUrl(res.data.next)
-      setPokemon(res.data.results.map(p => p.name))
+
+      const pokePromise = res.data.results.map(result =>
+        axios.get(result.url, {
+          cancelToken: new axios.CancelToken(c => c = c)
+        })
+        .then(res => ({
+        id: res.data.id,
+        name: res.data.name,
+        image: res.data.sprites.front_default
+      }))
+    );
+
+      Promise.all(pokePromise)
+      .then(pokemon => setPokemon(pokemon))
+      .catch(error => console.log(error))
     })
+    .catch(error => console.log(error))
 
     return () => cancel
   }, [currentPageUrl]);
@@ -37,6 +52,7 @@ function App() {
 
   return (
     <>
+      <img src={require('./pokedex.png')} className="pokedex"/>
       <PokemonList pokemon={pokemon} />
       <Pagination
         gotoNextPage={nextPageUrl ? gotoNextPage: null}

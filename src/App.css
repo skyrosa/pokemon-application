@@ -1,8 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;600;700;800&display=swap');
 
-.buttons {
-    
+.bg {
+    background: linear-gradient(to bottom, #92ff82, #fff);
+    min-height: 100vh;
+    padding: 10%;
 }
 
-.pokedex {
-    
+.pokedex-container {
+    position: relative;
+    background-image: url('./pokedex.png');
+    background-size:cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 450px;
+    max-width: 300px;
+    max-height: 1200px;
+}
+
+.pokedex-container img {
+    position: absolute;
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.image {
+    position: absolute;
+    z-index: 1;
+    top: 25%;
+    left: 35%;
+    transform: translate(-13%, 15%);
+    height: 30%;
+    max-width: 130px;
+}
+
+.data {
+    position: absolute;
+    z-index: 1;
+    top: 55%;
+    left: 20%;
+    font-size: clamp(8px, 16px, 25px);
+    font-family: 'Oxanium', cursive;
+    font-weight: 600;
+    text-transform: capitalize;
+    max-width: 130px;
+}
+
+.form {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    top: 70%;
+    left: 12%;
+    font-size: clamp(8px, 16px, 25px);
+    font-family: 'Oxanium', cursive;
+    color: rgb(180, 180, 180);
+    background-color: #ffffff;
+    box-shadow: -2px 2px 0 #a3a3a3, -4px 3px 0 #000;
+    border: 1px solid #000;
+    border-radius: 5px;
+    max-width: 205px;
+}
+
+.buttons {
+    position: absolute;
+    bottom: 15%;
+    left: 53%;
+    width: 100%;
+    transform: translate(-57%, 0);
+    display: flex;
+    gap: 20px;
+    max-width: 130px;
+}
+
+.p-button {
+    position: absolute;
+    bottom: 10%;
+    left: 25%;
+    width: 60%;
+    transform: translate(-57%, 0);
+    display: flex;
+    font-size: clamp(8px, 20px, 25px);
+    font-family: 'Oxanium', cursive;
+    color: white;
+    background-color: #585858;
+    box-shadow: -2px 3px 0 #222, -4px 6px 0 #000;
+    border: 2px solid #000;
+    border-radius: 5px;
+    max-width: 130px;
+}
+
+.n-button {
+    position: absolute;
+    bottom: 10%;
+    left: 95%;
+    width: 60%;
+    transform: translate(-57%, 0);
+    display: flex;
+    font-size: clamp(8px, 20px, 25px);
+    font-family: 'Oxanium', cursive;
+    color: white;
+    background-color: #585858;
+    box-shadow: -2px 3px 0 #222, -4px 6px 0 #000;
+    border: 2px solid #000;
+    border-radius: 5px;
+    max-width: 130px;
 }

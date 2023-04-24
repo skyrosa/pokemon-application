@@ -1,29 +1,22 @@
-import React, {useState} from 'react'
-export default function PokemonList({ pokemon }) {
-    const [currentIndex, setCurrentIndex] = useState(0);
-
-    const handleNextClick = () => {
-        if (currentIndex < pokemon.length - 1) {
-            setCurrentIndex(currentIndex + 1);
-        }
-    };
-
-    const handlePrevClick = () => {
-        if (currentIndex > 0) {
-            setCurrentIndex(currentIndex - 1);
-        }
-    };
+import React, { useState } from 'react'
+export default function PokemonList({ pokemon, currentIndex, handleNextClick, handlePrevClick, handleSubmit, handleChange, searchTerm, handleSearch, searchQuery }) {
 
     return (
-        <div>
-        {pokemon[currentIndex] && (
-            <div key={pokemon[currentIndex].id}>
-                <img src={pokemon[currentIndex].image} alt={pokemon[currentIndex].name} />
-                {pokemon[currentIndex].id}- {pokemon[currentIndex].name}
-            </div>
-        )}
-            <button onClick={handlePrevClick}>Prev</button>
-            <button onClick={handleNextClick}>Next</button>
+        <div className='main'>
+            {pokemon.length > 0 && pokemon[currentIndex] && (
+                <div className="pokedex-container">
+                    <img src={pokemon[currentIndex].image} alt={pokemon[currentIndex].name} className='image' />
+                    <div className='data'>{pokemon[currentIndex].id} - {pokemon[currentIndex].name} </div>
+                    <form onSubmit={handleSubmit} className='form'>
+                        <input type="text" placeholder="Search by name or ID" onChange={handleSearch}/>
+                        <button type="submit">OK</button>
+                    </form>
+                    <div className='buttons'>
+                        <button onClick={handlePrevClick} className='p-button'>Prev &lt;</button>
+                        <button onClick={handleNextClick} className='n-button'>Next &gt;</button>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
